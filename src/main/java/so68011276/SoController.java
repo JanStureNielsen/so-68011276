@@ -12,4 +12,9 @@ public class SoController {
         return pojo.toString();
     }
 
+    @PostMapping("/so/pojo")
+    public String avoidEntityModel(@RequestBody SoPojo pojo) {
+        return pojo.toString();
+    }
+
 }

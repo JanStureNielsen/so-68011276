@@ -1,7 +1,6 @@
-# SO 
-This is minimal sample showing the problem described in https://stackoverflow.com/questions/68011276.
+# Spring Data REST EntityModel deserialization issue
 
-To reproduce, build and run the server:
+Minimal example showing the problem described in this [Stackoverflow question](https://stackoverflow.com/questions/68011276). Build and run the server:
 
 ```
 mvn clean install
@@ -83,4 +82,15 @@ java.lang.NullPointerException: Cannot invoke "org.springframework.data.util.Typ
 	at java.base/java.lang.Thread.run(Thread.java:832) ~[na:na]
 ```
 
-whereas the Spring Boot 2.4.4 shows no error.
+## Work-arounds
+
+### Don't use Spring Boot 2.5
+[Spring Boot 2.4 does not trigger this issue](https://github.com/JanStureNielsen/so-68011276/blob/main/pom.xml#L14-L22).
+
+### Don't use `ModelEntity`
+
+This warning is only triggered when using the `ModelEntity`, so [this method does not trigger the warning](https://github.com/JanStureNielsen/so-68011276/blob/main/src/main/java/so68011276/SoController.java#L15-L18).
+
+### Don't use `Spring Boot Data REST Starter`
+
+Replacing [`spring-boot-starter-data-rest` with `spring-boot-starter-hateoas`](https://github.com/JanStureNielsen/so-68011276/blob/main/pom.xml#L41-L47) avoids the issue.
