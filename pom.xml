@@ -38,7 +38,7 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-rest</artifactId>
         </dependency>
-        <!-- Spring Boot HATEOAS Started (instead of Data REST) does not trigger the issue. -->
+        <!-- Spring Boot HATEOAS Starter (instead of Data REST) does not trigger the issue. -->
         <!-- 
         <dependency>
             <groupId>org.springframework.boot</groupId>
